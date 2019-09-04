@@ -133,8 +133,7 @@ const data = [
 
     //span
     spanBtn.addEventListener('click', e => {
-      document.querySelector('.article')
-      .classList.toggle('article-open')
+      div.classList.toggle('article-open');
   })
     
     div.appendChild(h2);
