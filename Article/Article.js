@@ -106,20 +106,30 @@ const data = [
   function articleMaker({ title, date, firstParagraph, secondParagraph, thirdParagraph }) {
 
     const div = document.createElement('div');
-    div.setAttribute('class','article');
+    div.classList.add('article');
+ 
 
     const h2 = document.createElement('h2');
+    h2.textContent = title;
 
     const p1 = document.createElement('p');
     p1.textContent = date;
-    p1.setAttribute('class','date');
+    p1.classList.add('date');
+    
 
     const p2 = document.createElement('p');
+    p2.textContent = firstParagraph;
+
     const p3 = document.createElement('p');
+    p3.textContent = secondParagraph;
+
     const p4 = document.createElement('p');
+    p4.textContent = thirdParagraph;
   
     const spanBtn = document.createElement('span');
-    spanBtn.setAttribute('class','expandButton');
+    spanBtn.classList.add('expandButton');
+    spanBtn.textContent = 'Toggle';
+   
 
     //span
     spanBtn.addEventListener('click', e => {
@@ -127,16 +137,6 @@ const data = [
       .classList.toggle('article-open')
   })
     
-    h2.textContent = title;
-    
-    p2.textContent = firstParagraph;
-    p3.textContent = secondParagraph;
-    p4.textContent = thirdParagraph;
-    spanBtn.textContent = 'Toggle';
-
-   
-   
-
     div.appendChild(h2);
     div.appendChild(p1);
     div.appendChild(p2);
@@ -149,12 +149,10 @@ const data = [
 
   const articles = data.map(articleMaker);
   const articlesContainer = document.querySelector(".articles");
-  const {appendChild} = articlesContainer;
 
-  articles.forEach(article => {
-      articlesContainer.appendChild(article)
-  });
-  console.log(articlesDiv)
+
+  // articles.forEach(article => document.querySelector('.articles').appendChild(article));
+  articles.forEach(article => articlesContainer.appendChild(article));
 
   // Step 2: Add an event listener to the expandButton span. This event listener should toggle the class 'article-open' on the 'article' div.
 
