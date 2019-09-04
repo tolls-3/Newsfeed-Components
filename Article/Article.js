@@ -88,6 +88,15 @@ const data = [
   }
 ];
 
+data.push(
+  {
+    title: 'Data Science',
+    date:'July 2nd, 2019',
+    firstParagraph:'asjsjsj ajjsjjdhhdhd asaslkkdld alsklkslk alkslkalkl alkslkadlkdlk',
+    secondParagraph:' bvbvbbvbvb pojsaijiudhi piwjduhhknlkamksmkcnjbhjsbjhba s  aaaaaaaaaaaaaaaaaakdjjjjjjjjjjjjjjjjjjjjjjjjjjjjnxnzjbchabsbxxxxxx',
+    thirdParagraph:'sjdnj ajsqooqppqp njbbcbb snxnjkajkj'
+  }
+)
 // Step 1: Create a function that creates a component. You will want your component to look like the template below: 
   
 //   <div class="article">
@@ -133,7 +142,8 @@ const data = [
 
     //span
     spanBtn.addEventListener('click', e => {
-      div.classList.toggle('article-open');
+      
+      div.classList.toggle('article-open')
   })
     
     div.appendChild(h2);
