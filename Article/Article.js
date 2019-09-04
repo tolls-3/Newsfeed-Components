@@ -103,53 +103,58 @@ const data = [
 
 //   Your function should take either an object as it's one argument, or 5 separate arguments mapping to each piece of the data object above.
 
-  function articleMaker({ title, text1, text2, text3, text4 }) {
-    const article = document.createElement('article');
+  function articleMaker({ title, date, firstParagraph, secondParagraph, thirdParagraph }) {
+
+    const div = document.createElement('div');
+    div.setAttribute('class','article');
+
     const h2 = document.createElement('h2');
+
     const p1 = document.createElement('p');
+    p1.textContent = date;
+    p1.setAttribute('class','date');
+
     const p2 = document.createElement('p');
     const p3 = document.createElement('p');
     const p4 = document.createElement('p');
-    // const button = document.createElement('button');
-    const expandButton = document.createElement('span');
-  expandButton.classList.add('expandButton');
+  
+    const spanBtn = document.createElement('span');
+    spanBtn.setAttribute('class','expandButton');
+
+    //span
+    spanBtn.addEventListener('click', e => {
+      document.querySelector('.article')
+      .classList.toggle('article-open')
+  })
     
     h2.textContent = title;
-    p1.textContent = text1;
-    p2.textContent = text2;
-    p3.textContent = text3;
-    p4.textContent = text4;
-    expandButton.textContent = 'toggle';
+    
+    p2.textContent = firstParagraph;
+    p3.textContent = secondParagraph;
+    p4.textContent = thirdParagraph;
+    spanBtn.textContent = 'Toggle';
 
-    p1.classList.add('date');
-    // p2.classList.add('hidden');
+   
+   
 
-    expandButton.addEventListener('click', e => {
-      article.classList.toggle('article');
-    //   p1.classList.toggle('hidden');
-    //   p2.classList.toggle('hidden');
-    });
+    div.appendChild(h2);
+    div.appendChild(p1);
+    div.appendChild(p2);
+    div.appendChild(p3);
+    div.appendChild(p4);
+    div.appendChild(spanBtn);
 
-    article.appendChild(h2);
-    article.appendChild(p1);
-    article.appendChild(p2);
-    article.appendChild(p3);
-    article.appendChild(p4);
-    article.appendChild(expandButton);
-
-    return article;
+    return div;
   };
 
   const articles = data.map(articleMaker);
+  const articlesContainer = document.querySelector(".articles");
+  const {appendChild} = articlesContainer;
 
-  const articlesContainer = document.querySelector('.articles');
-
-articles.forEach((element, index) => {
-  articlesContainer.appendChild(element);
-  if (index === 1) {
-    element.classList.add('article')
-  }
-});
+  articles.forEach(article => {
+      articlesContainer.appendChild(article)
+  });
+  console.log(articlesDiv)
 
   // Step 2: Add an event listener to the expandButton span. This event listener should toggle the class 'article-open' on the 'article' div.
 
@@ -159,4 +164,13 @@ articles.forEach((element, index) => {
 
   // Step 5: Add a new article to the array. Make sure it is in the same format as the others. Refresh the page to see the new article.
 
+
+
+
+
   
+
+
+
+
+
