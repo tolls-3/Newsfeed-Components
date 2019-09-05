@@ -44,7 +44,7 @@ function menuComponent (param){
   const ul = document.createElement('ul');
 
 
-  param.map(function(element) {
+  param.map(element => {
     const li = document.createElement('li');
     li.textContent = element;
     ul.appendChild(li);
